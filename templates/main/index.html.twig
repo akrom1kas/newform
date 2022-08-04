@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    {% include('main/navbar.html.twig') %}
+    <dic class="container">
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-success mt-4 mb-b ">
+                {{ message }}
+            </div>
+        {%endfor %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Vardas</th>
+                <th scope="col">Pavarde</th>
+                <th scope="col">Epastas</th>
+                <th scope="col">Telefonas</th>
+                <th scope="col">Adresas</th>
+                <th scope="col">Funkcijos</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in list %}
+                <tr>
+                    <th scope="row">{{ data.id }}</th>
+                    <td>{{ data.vardas }}</td>
+                    <td>{{ data.pavarde }}</td>
+                    <td>{{ data.Epastas }}</td>
+                    <td>{{ data.Telefonas }}</td>
+                    <td>{{ data.Adresas }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{{ path('Update',{'id': data.id }) }}">Update</a>
+                        <a class="btn btn-danger" href="{{ path('Delete',{'id': data.id }) }}">Delete</a>
+
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </dic>
+{% endblock %}
