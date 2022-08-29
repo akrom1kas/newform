@@ -1,10 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <h3 class="mt-5 mb-5">Create Form</h3>
-            <div class="col-md-6 offset-md-3">
+                <div class="col-md-6 offset-md-3" >
                 {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.Vardas) }}
@@ -31,7 +28,4 @@
                     <button class="btn btn-info mt-2 text-white" onclick="history.go(-1);">Back </button>
                 </div>
                 {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
 {% endblock %}

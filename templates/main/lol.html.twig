@@ -1,0 +1,12 @@
+<script>
+
+    $(document).ready(function () {
+        $(".btn-warning").click(function () {
+            $('#exampleModal').modal('show');
+            var id = $(this).attr("data-edit-id");
+            var url = "{{ path('Update',{'id': 'Edit' }) }}";
+            var url_replaced = url.replace('Edit', id);
+            $('#edit-result').load(url_replaced);
+        });
+    });
+</script>

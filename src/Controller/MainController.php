@@ -14,17 +14,25 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/main', name: 'main')]
+
+    /**
+     * @Route("/", name="main")
+     */
     public function index(ManagerRegistry $doctrine): Response
     {
 
         $data = $doctrine->getRepository(Naujas::class)->findAll();
         return $this->render('main/index.html.twig', [
+            'MainController' =>'MainController',
             'list' => $data
         ]);
     }
 
-    #[Route('/create', name: 'create')]
+    /**
+     * @Route("/create", name="create")
+     *
+     */
+
     public function create(Request $request, ManagerRegistry $doctrine )
     {
         $naujas = new Naujas();
@@ -44,7 +52,10 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/update/{id}', name: 'Update')]
+    /**
+     * @Route("/update/{id}", name="Update")
+     */
+
     public function update(Request $request,$id, ManagerRegistry $doctrine )
     {
         $naujas = $doctrine->getRepository(Naujas::class)->find($id);
@@ -61,9 +72,14 @@ class MainController extends AbstractController
         }
         return $this->render('main/update.html.twig',[
             'form' => $form->createView()
+
+
         ]);
     }
-    #[Route('/delete/{id}', name: 'Delete')]
+
+    /**
+     * @Route("/delete/{id}", name="Delete")
+     */
 
     public function delete($id, ManagerRegistry $doctrine )
     {
@@ -76,6 +92,8 @@ class MainController extends AbstractController
 
         return $this->redirectToRoute('main');
     }
+
+
 }
 
 

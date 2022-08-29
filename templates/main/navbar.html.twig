@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <a class="navbar-brand" href="#">Navbar</a>
     {% for data in list %}
@@ -15,10 +15,10 @@
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('create',{'id': data.id }) }}">Add</a>
+                <a class="nav-link" href="{{ path('create',{'id': data.id }) }}" data-edit-id="{{ data.id }}" >Add</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="#" >Edit</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Register</a>

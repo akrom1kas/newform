@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <h3 class="mt-5 mb-5">Update Form</h3>
             {% for message in app.flashes('notice') %}
@@ -9,7 +9,7 @@
                     {{ message }}
                 </div>
             {%endfor %}
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-6 offset-md-3" >
                 {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.Vardas) }}
@@ -38,5 +38,5 @@
                 {{ form_end(form) }}
             </div>
         </div>
-    </div>
+
 {% endblock %}
